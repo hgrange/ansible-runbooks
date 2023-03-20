@@ -18,7 +18,7 @@
       
     - name: DEBUG -
       debug :
-        var: result
+        msg: "{{ result.stdout }}"
         
     - name: Mitigate MYSQL Problem (NEW)
       shell: |
