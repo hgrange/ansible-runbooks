@@ -11,12 +11,8 @@
         var: k8s_apikey
 
     - name: OCP Login
-      shell: |
-        pwd
-        cat /etc/hostname;
-        ls /tmp;
-        env;
-        /tmp/oc login -u {{ user }} -p {{ my_k8s_apikey }} --server={{ my_k8s_apiurl }} --insecure-skip-tls-verify
+      shell: |  
+        cat /etc/hostname
       ignore_errors: yes
 
 
