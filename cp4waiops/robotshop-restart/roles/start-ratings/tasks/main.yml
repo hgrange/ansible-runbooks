@@ -12,6 +12,9 @@
 
     - name: OCP Login
       shell: |
+        hostname
+        ls /tmp
+        env
         /tmp/oc login -u {{ user }} -p {{ my_k8s_apikey }} --server={{ my_k8s_apiurl }} --insecure-skip-tls-verify
       ignore_errors: yes
 
@@ -27,7 +30,7 @@
 
       ignore_errors: yes
 
-    - name: Incrase MYSQL Memory
+    - name: Increase MYSQL Memory
       shell: |
         echo "---------------------------------------------------------------------------------------------------------------------------------------------------"
       ignore_errors: yes
