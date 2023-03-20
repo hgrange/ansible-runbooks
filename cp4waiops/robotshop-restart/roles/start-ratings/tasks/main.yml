@@ -12,7 +12,7 @@
 
     - name: OCP Login
       shell: |  
-        cat /etc/hostname
+        df -k
       register: result
       ignore_errors: yes
       
