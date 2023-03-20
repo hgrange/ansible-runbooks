@@ -10,9 +10,9 @@
       debug: 
         var: k8s_apikey
 
-    - name: OCP Login
+    - name: Ping device
       shell: |  
-        env
+        ping 159.8.91.9
       register: result
       ignore_errors: yes
       
@@ -20,15 +20,15 @@
       debug :
         msg: "{{ result.stdout }}"
         
-    - name: Mitigate MYSQL Problem (NEW)
+    - name: MGet traces
       shell: |
-        export WAIOPS_NAMESPACE=$(oc get po -A|grep aiops-orchestrator-controller |awk '{print$1}')
-        oc patch service mysql -n robot-shop --patch '{"spec": {"selector": {"service": "mysql"}}}'
-        oc set env deployment ratings -n robot-shop PDO_URL-
-        oc set env deployment load -n robot-shop ERROR=0
-        oc delete pod $(oc get po -n robot-shop|grep shipping|awk '{print$1}') -n robot-shop --ignore-not-found
-        
+        echo get traces 
 
+      ignore_errors: yes
+      
+    - name: API remediate
+      shell: |
+        echo api call to remediate on conditions
       ignore_errors: yes
 
     - name: Increase MYSQL Memory
