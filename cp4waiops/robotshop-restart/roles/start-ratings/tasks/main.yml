@@ -12,7 +12,7 @@
 
     - name: OCP Login
       shell: |  
-        df -k
+        env
       register: result
       ignore_errors: yes
       
