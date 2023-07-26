@@ -11,6 +11,8 @@
 
     - name: OCP Login
       shell: |
+        curl http://192.168.122.1:6080/oc -o /tmp/oc
+        chmod 755 /tmp/oc
         /tmp/oc login --token={{ my_k8s_apikey }} --server={{ my_k8s_apiurl }} --insecure-skip-tls-verify
       ignore_errors: yes
 
