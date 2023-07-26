@@ -11,7 +11,7 @@
 
     - name: OCP Login
       shell: |
-        oc login --token={{ my_k8s_apikey }} --server={{ my_k8s_apiurl }} --insecure-skip-tls-verify
+        /tmp/oc login --token={{ my_k8s_apikey }} --server={{ my_k8s_apiurl }} --insecure-skip-tls-verify
       ignore_errors: yes
 
 
