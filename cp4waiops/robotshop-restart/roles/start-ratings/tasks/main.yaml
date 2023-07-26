@@ -19,7 +19,6 @@
 
     - name: Mitigate MYSQL Problem (NEW)
       shell: |
-        export WAIOPS_NAMESPACE=$(/tmp/oc get po -A|grep aiops-orchestrator-controller |awk '{print$1}')
         /tmp/oc patch service mysql -n robot-shop --patch '{"spec": {"selector": {"service": "mysql"}}}'
         /tmp/oc set env deployment ratings -n robot-shop PDO_URL-
         /tmp/oc set env deployment load -n robot-shop ERROR=0
