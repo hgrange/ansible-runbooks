@@ -12,8 +12,5 @@
     - name: validate_certs
       set_fact:
         validate_certs: "no"
-
-
-
   roles:
     - start-ratings
